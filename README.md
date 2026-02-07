@@ -9,7 +9,7 @@ It allows customers to browse dishes, add items to a cart, and place lunch order
 
 🛒 Real-time cart management with quantity controls
 
-⏰ Automatic ordering time window (10:00 AM – 11:50 PM)
+⏰ Automatic ordering time window (00:00 AM – 11:59 PM)
 
 ❌ Out-of-stock & Coming-Soon product handling
 
@@ -49,7 +49,7 @@ WhatsApp Click-to-Chat API
 
 ⏱️ Ordering Time Logic
 
-Orders are automatically disabled outside: 10:00 AM – 11:50 PM
+Orders are accepted 24/7 : 00:00 AM – 11:59 PM
 
 🔐 Validation & Safety
 
@@ -77,4 +77,5 @@ Nanakramguda, Hyderabad, Telangana – 500032
 📄 License
 
 This project is created for learning and local business use.
+
 You are free to modify and enhance it.
