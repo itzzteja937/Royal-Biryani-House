@@ -13,18 +13,9 @@ let isPlacingOrder = false;
 
 // ---------------- ORDERING TIME WINDOW ----------------
 
-// true if current time is between 10:00 AM and 11:50 PM (same day)
+// true for 24 hours (00:00 AM to 11:59 PM)
 function isWithinOrderingWindow() {
-  const now = new Date();
-  const h = now.getHours();
-  const m = now.getMinutes();
-  const minutes = h * 60 + m;
-
-  const start = 10 * 60;
-  const end = 23 * 60 + 50;
-
-  // simple range: ONLY between start and end
-  return minutes >= start && minutes <= end;
+  return true;
 }
 
 // ---------------- AUTO DISABLE PLACE ORDER BUTTON ----------------
@@ -37,7 +28,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   if (!isOpen) {
     if (banner) banner.style.display = 'block';
-    orderBtn.disabled = true;
+    orderBtn.disabled = false;
   } else {
     if (banner) banner.style.display = 'none';
     orderBtn.disabled = false;
@@ -209,10 +200,10 @@ function openOrderPopup() {
     return;
   }
 
-  // Allow orders only from 10:00 AM to 11:50 PM
+  // Allow orders for 24 hours (00:00 AM to 11:59 PM)
   if (!isWithinOrderingWindow()) {
     alert(
-      'Orders can be placed only between 10:00 AM to 11:50 PM.\n' +
+      'Orders can be placed only between 00:00 AM to 11:59 PM.\n' +
       'Sorry..! please visit again during that time window.'
     );
     return;
@@ -223,7 +214,7 @@ function openOrderPopup() {
   // Set delivery information text on the popup
   const infoEl = document.getElementById('deliveryInfo');
   if (infoEl) {
-    infoEl.textContent = 'Orders will be delivered between 10:00 AM and 11:50 PM.';
+    infoEl.textContent = 'Orders will be delivered between 00:00 AM and 11:59 PM.';
   }
 
   document.getElementById('orderPopup').style.display = 'flex';
